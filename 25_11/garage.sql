@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 25 nov. 2025 à 10:17
+-- Généré le : mar. 25 nov. 2025 à 10:23
 -- Version du serveur : 8.4.7
 -- Version de PHP : 8.3.28
 
@@ -24,11 +24,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `article`
+-- Structure de la table `g_article`
 --
 
-DROP TABLE IF EXISTS `article`;
-CREATE TABLE IF NOT EXISTS `article` (
+DROP TABLE IF EXISTS `g_article`;
+CREATE TABLE IF NOT EXISTS `g_article` (
   `a_id` int DEFAULT NULL,
   `a_reference` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `a_type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `article` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `article`
+-- Déchargement des données de la table `g_article`
 --
 
 INSERT INTO `article` (`a_id`, `a_reference`, `a_type`, `a_marque`, `a_quantitee`) VALUES
@@ -53,11 +53,11 @@ INSERT INTO `article` (`a_id`, `a_reference`, `a_type`, `a_marque`, `a_quantitee
 -- --------------------------------------------------------
 
 --
--- Structure de la table `voiture`
+-- Structure de la table `g_voiture`
 --
 
-DROP TABLE IF EXISTS `voiture`;
-CREATE TABLE IF NOT EXISTS `voiture` (
+DROP TABLE IF EXISTS `g_voiture`;
+CREATE TABLE IF NOT EXISTS `g_voiture` (
   `v_id` int DEFAULT NULL,
   `v_marque` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `v_type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -67,10 +67,10 @@ CREATE TABLE IF NOT EXISTS `voiture` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `voiture`
+-- Déchargement des données de la table `g_voiture`
 --
 
-INSERT INTO `voiture` (`v_id`, `v_marque`, `v_type`, `v_energie`, `v_fk_article_id`) VALUES
+INSERT INTO `g_voiture` (`v_id`, `v_marque`, `v_type`, `v_energie`, `v_fk_article_id`) VALUES
 (0, '1', '1', 'Renault', 0);
 COMMIT;
 
