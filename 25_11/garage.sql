@@ -1,22 +1,56 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.3
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le : mar. 25 nov. 2025 à 09:54
+-- Version du serveur : 8.4.7
+-- Version de PHP : 8.3.28
 
--- Structure de la table voiture
-
-CREATE TABLE g_voiture (
-    v_id INT PRIMARY KEY,
-    v_marque VARCHAR(50) NOT NULL,
-    v_type VARCHAR(50) NOT NULL,
-    v_energie VARCHAR(50) NOT NULL,
-) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
-ALTER TABLE g_voiture ADD CONSTRAINT v_fk_article_id FOREIGN KEY (v_fk_article_id) REFERENCES g_article(a_id);
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
--- Structure de la table article
+--
+-- Base de données : `garage`
+--
 
-CREATE TABLE g_article (
-    a_id INT PRIMARY KEY,
-    a_reference VARCHAR(50) NOT NULL,
-    a_type VARCHAR(50) NOT NULL,
-    a_marque VARCHAR(50) NOT NULL,
-    a_quantitee INT NOT NULL,
-) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `article`
+--
+
+DROP TABLE IF EXISTS `article`;
+CREATE TABLE IF NOT EXISTS `article` (
+  `a_id` int DEFAULT NULL,
+  `a_reference` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `a_type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `a_marque` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `a_quantitee` int DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `voiture`
+--
+
+DROP TABLE IF EXISTS `voiture`;
+CREATE TABLE IF NOT EXISTS `voiture` (
+  `v_id` int DEFAULT NULL,
+  `v_marque` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `v_type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `v_energie` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
