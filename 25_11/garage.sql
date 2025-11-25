@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 25 nov. 2025 à 10:23
+-- Généré le : mar. 25 nov. 2025 à 10:36
 -- Version du serveur : 8.4.7
 -- Version de PHP : 8.3.28
 
@@ -40,15 +40,16 @@ CREATE TABLE IF NOT EXISTS `g_article` (
 -- Déchargement des données de la table `g_article`
 --
 
-INSERT INTO `article` (`a_id`, `a_reference`, `a_type`, `a_marque`, `a_quantitee`) VALUES
-(1, 'Renault', '1', '1H765J87', 0);
-(2, 'Peugeot', '1', '9KJ76H5', 0);
-(3, 'Citroen', '1', '76JH65K', 0);
-(4, 'Ford', '1', '65KJ87H', 0);
-(5, 'BMW', '1', 'JH76KJ8', 0);
-(6, 'Audi', '1', '87H65KJ', 0);
-(7, 'Mercedes', '1', 'KJ87H65', 0);
-(8, 'Volkswagen', '1', 'H65KJ87', 0);
+INSERT INTO `g_article` (`a_id`, `a_reference`, `a_type`, `a_marque`, `a_quantitee`) VALUES
+(1, 'Renault', 'Pneu', '1H765J87', 0),
+(1, '1H765J87', 'Essuie-glace', 'Renault', 1),
+(2, '9KJ76H5', 'Pneu', 'Peugeot', 1),
+(3, '76JH65K', 'Essuie-glace', 'Citroen', 1),
+(4, '65KJ87H', 'Pneu', 'Ford', 1),
+(5, 'JH76KJ8', 'Pneu', 'BMW', 1),
+(6, '87H65KJ', 'Essuie-glace', 'Audi', 1),
+(7, 'KJ87H65', 'Filtre à air', 'Mercedes', 1),
+(8, 'H65KJ87', 'Filtre à air', 'Volkswagen', 1);
 
 -- --------------------------------------------------------
 
@@ -71,7 +72,15 @@ CREATE TABLE IF NOT EXISTS `g_voiture` (
 --
 
 INSERT INTO `g_voiture` (`v_id`, `v_marque`, `v_type`, `v_energie`, `v_fk_article_id`) VALUES
-(0, '1', '1', 'Renault', 0);
+(1, 'Renault', 'SUV', 'Essence', 1),
+(2, 'Peugeot', 'Berline', 'Diesel', 2),
+(3, 'Citroen', 'Compacte', 'Essence', 3),
+(4, 'Ford', 'Pickup', 'Diesel', 4),
+(5, 'BMW', 'Coupé', 'Essence', 5),
+(6, 'Audi', 'SUV', 'Diesel', 6),
+(7, 'Mercedes', 'Berline', 'Essence', 7),
+(8, 'Volkswagen', 'Compacte', 'Diesel', 8);
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
