@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 25 nov. 2025 à 09:54
+-- Généré le : mar. 25 nov. 2025 à 10:02
 -- Version du serveur : 8.4.7
 -- Version de PHP : 8.3.28
 
@@ -47,7 +47,9 @@ CREATE TABLE IF NOT EXISTS `voiture` (
   `v_id` int DEFAULT NULL,
   `v_marque` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `v_type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `v_energie` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `v_energie` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `v_fk_article_id` int DEFAULT NULL,
+  KEY `article_fk` (`v_fk_article_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 COMMIT;
 
