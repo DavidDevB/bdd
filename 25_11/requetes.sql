@@ -56,3 +56,34 @@ SELECT a_marque, COUNT(a_quantite) AS quantités
 FROM g_article
 GROUP BY a_designation
 HAVING COUNT(a_quantite) > 1;
+
+
+-- Sélectionner les ID des ordres de réparation pour le véhicule avec l'ID 12
+SELECT o_id FROM g_or WHERE v_id = 12
+UNION
+SELECT COUNT(*) AS nombre FROM g_or WHERE v_id = 12;
+
+
+
+-- Rafael DUCASSE
+SELECT 
+    c.c_nom,
+    v.v_marque ,
+    v.v_modele ,
+    v.v_plaque,
+    COUNT(DISTINCT o.ord_fk_id_facture) AS Nombre_de_passages
+FROM g_voiture v
+JOIN g_client c ON v.v_fk_id_client = c.c_id
+JOIN g_ordre o ON o.ord_fk_id_client = c.c_id
+GROUP BY c_nom
+ORDER BY Nombre_de_passages DESC;
+
+
+-- Prix moyen des filtres par marque et prix moyen global des filtres
+SELECT 
+    a_marque,
+    a_prix,
+    ROUND(AVG(a_prix) OVER (), 2) AS moy_prix_filtres,
+    ROUND(AVG(a_prix) OVER (PARTITION BY a_marque), 2) AS moy_prix_par_marque
+FROM g_article
+WHERE a_designation LIKE '%filtre%';
